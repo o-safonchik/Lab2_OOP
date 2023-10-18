@@ -8,18 +8,32 @@ export const game: {
     "toStep": (step: number) => boolean,
     "checkStatus": () => string
 } = {
-    steps: [],
+    // TODO
+    // Необходимо инициализировать steps массивом с пустой доской
+    steps: [], 
     current: 0,
     move: function (index: number): boolean {
         // TODO
+        // Вызывает checkStatus, и, если игра окончена, возвращает false
+        // Определяет, какой символ ходит, и пытается сделать ход 
+        //  с помощью board.move.
+        // Если ход можно сделать, то добавляет  новыу позицию в steps, 
+        //  обновляет current и возвращает true, иначе возвращает false
+        // Нужно учесть, что если вызывалась функция toStep, то 
+        //  current можно указывать не на последний элемент steps
         return true
     },
     toStep: function (step: number): boolean {
         // TODO
+        // Проверяет, что в steps есть элемент с индексом step,
+        //  если нет то возвращает false
+        // Делает current равным step и обновляет свойство cell в board
         return true
     },
     checkStatus: function (): string {
         // TODO
+        // Возвращает "Ничья", "Победил 0", "Победил X" или "Идет игра"
+        //  в зависимости от ситуации на доске
         return "Идет игра"
     }
 }

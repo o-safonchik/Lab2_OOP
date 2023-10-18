@@ -3,6 +3,8 @@ export type Cells = [Cell, Cell, Cell, Cell, Cell, Cell, Cell, Cell, Cell]
 
 function isCell(sym: string): sym is Cell {
     // TODO
+    // Проверяет, является ли sym типа Cell
+    // Возвращает true если sym типа Cell, иначе false
     return true
 }
 
@@ -20,16 +22,23 @@ export const board: {
 
     fromString(str: string) {
         // TODO
+        // Переписывает из str символы в this.cells
+        // Если длина строки не равна 9, возвращает false
+        // Если встретиться символ не из Cell возвращает false
+        // Если преобразование прошло успешно возвращает true
         return true
     },
 
     isFill() {
         // TODO
+        // Возвращет true если на доске нет пустых клеток
         return true
     },
 
     move(index: number, cell: Cell) {
         // TODO
+        // Если ячейка this.cell[index] занята - возвращает false
+        // Записывает в ячейку cell и возвращает true
         return true
     },
     
@@ -39,6 +48,9 @@ export const board: {
 
     checkWin(){
         // TODO
+        // Если имеется комбинация из трех одинаковых символов "X" или "0" 
+        //  в линию - возвращает этот символ
+        // Иначе возвращает символ "_"
         return "_"
     },
 
