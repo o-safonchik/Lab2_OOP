@@ -1,6 +1,6 @@
 import { board } from "./board"
 
-test("Преобразования", () => {
+test("Convert", () => {
     let source = "00__XX___"
     expect(board.fromString(source)).toBe(true)
     expect(board.toString()).toBe(source)

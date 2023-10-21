@@ -1,6 +1,7 @@
 import { board, Cells } from "./board"
 
-
+// В объекте хранится список всех позиций, которые были в игре (свойство steps) 
+//  и номер текущей позиции в этом списке (current).
 export const game: {
     "steps": Cells[],
     "current": number,    

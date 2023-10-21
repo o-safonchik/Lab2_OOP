@@ -8,6 +8,7 @@ function isCell(sym: string): sym is Cell {
     return true
 }
 
+// В объекте хранится текущая позиция. 
 export const board: {
     "cells": Cells,
     "fromString": (str: string) => boolean,
