@@ -30,6 +30,12 @@ export const board: {
         return true
     },
 
+    toString(): string {
+        // TODO
+        // Возвращает строку, состоящую из символов this.cells
+        return ""
+    },
+
     isFill() {
         // TODO
         // Возвращет true если на доске нет пустых клеток
