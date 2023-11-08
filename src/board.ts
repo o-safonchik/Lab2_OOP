@@ -2,10 +2,12 @@ export type Cell = "_" | "X" | "0"
 export type Cells = [Cell, Cell, Cell, Cell, Cell, Cell, Cell, Cell, Cell]
 
 function isCell(sym: string): sym is Cell {
-    // TODO
     // Проверяет, является ли sym типа Cell
     // Возвращает true если sym типа Cell, иначе false
-    return true
+    if (sym == "_" || sym == "X" || sym == "0")
+        return true
+    else
+        return false
 }
 
 // В объекте хранится текущая позиция. 
@@ -19,33 +21,30 @@ export const board: {
     "checkWin": () => Cell,
     "winPos": number[][]
 } = {
+
     "cells": ["_", "_", "_", "_", "_", "_", "_", "_", "_"],
 
     fromString(str: string) {
-        // TODO
-        // Переписывает из str символы в this.cells
-        // Если длина строки не равна 9, возвращает false
-        // Если встретиться символ не из Cell возвращает false
-        // Если преобразование прошло успешно возвращает true
-        return true
+        if(str.length != 9) return false // Если длина строки не равна 9, возвращает false
+        for(let i=0; i<9; i++) // цикл по массиву
+            if(isCell(str[i]) == true) this.cells[i] = str[i] as Cell // Переписывает из str символы в this.cells
+            else return false // Если встретиться символ не из Cell возвращает false
+        return true // Если преобразование прошло успешно возвращает true
     },
 
     toString(): string {
-        // TODO
-        // Возвращает строку, состоящую из символов this.cells
-        return ""
+        return this.cells.join('') // Возвращает строку, состоящую из символов this.cells
     },
 
     isFill() {
-        // TODO
-        // Возвращет true если на доске нет пустых клеток
-        return true
+        for(let i=0; i<9; i++)
+            if(this.cells[i] == "_") return false
+        return true // Возвращет true если на доске нет пустых клеток
     },
 
     move(index: number, cell: Cell) {
-        // TODO
-        // Если ячейка this.cell[index] занята - возвращает false
-        // Записывает в ячейку cell и возвращает true
+        if(this.cells[index] != "_") return false // Если ячейка this.cell[index] занята - возвращает false
+        this.cells[index] = cell // Записывает в ячейку cell и возвращает true
         return true
     },
     
@@ -54,11 +53,18 @@ export const board: {
     },
 
     checkWin(){
-        // TODO
-        // Если имеется комбинация из трех одинаковых символов "X" или "0" 
-        //  в линию - возвращает этот символ
-        // Иначе возвращает символ "_"
-        return "_"
+    // Если имеется комбинация из трех одинаковых символов "X" или "0" возвращает этот символ
+    // Иначе возвращает символ "_"
+        for (let i = 0; i < 8; i++) {
+            let check: Cell[] = this.getLineChar(this.winPos[i])
+            if (check[0] === 'X' && check[1] === 'X' && check[2] === 'X') { // Если имеется комбинация из трех одинаковых символов "X" или "0"
+              return 'X'
+            }
+            if (check[0] === '0' && check[1] === '0' && check[2] === '0'){
+              return '0'
+            }
+        }
+        return "_" 
     },
 
     "winPos": [

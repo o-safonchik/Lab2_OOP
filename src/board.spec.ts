@@ -25,7 +25,7 @@ test("move", () => {
 test("checkWin", () => {
     board.fromString("000XXX00_")
     expect(board.checkWin()).toBe("0")
-    board.fromString("__X_X_X___")
+    board.fromString("__X_X_X__")
     expect(board.checkWin()).toBe("X")
     board.fromString("_________")
     expect(board.checkWin()).toBe("_")

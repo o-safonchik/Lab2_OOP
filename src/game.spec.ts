@@ -13,12 +13,12 @@ test("move", () => {
 })
 
 test("toStep", () => {
-    expect(game.toStep(0)).toBe(true)
-    expect(game.move(2)).toBe(true)
+    expect(game.toStep(0)).toBe(true) //3
+    expect(game.move(0)).toBe(true) 
     expect(game.move(1)).toBe(true)
-    expect(game.move(0)).toBe(true)
-    expect(game.toStep(4)).toBe(false)
-    expect(game.toStep(1)).toBe(true)
+    expect(game.move(2)).toBe(true)
+    expect(game.toStep(4)).toBe(false) //6
+    expect(game.toStep(1)).toBe(true) //4
     expect(game.steps.length).toBe(4)
     expect(game.move(4)).toBe(true)
     expect(game.steps.length).toBe(3)
