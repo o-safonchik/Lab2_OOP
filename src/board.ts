@@ -57,7 +57,7 @@ export const board: {
     // Иначе возвращает символ "_"
         for (let i = 0; i < 8; i++) {
             let check: Cell[] = this.getLineChar(this.winPos[i])
-            if (check[0] === 'X' && check[1] === 'X' && check[2] === 'X') { // Если имеется комбинация из трех одинаковых символов "X" или "0"
+            if (check[0] === 'X' && check[1] === 'X' && check[2] === 'X') {
               return 'X'
             }
             if (check[0] === '0' && check[1] === '0' && check[2] === '0'){
